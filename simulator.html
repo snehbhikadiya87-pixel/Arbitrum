@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Mining Simulator | Interactive Lab</title>
+    <meta name="description" content="Experience how blockchain works interactively. Understand hashing, nonces, and chain integrity.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/simulator.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+</head>
+<body>
+    <div class="cursor"></div>
+
+    <!-- Background Grid & Particles -->
+    <div class="bg-layer">
+        <div class="grid-bg"></div>
+        <div class="glow-orb blue-orb"></div>
+        <div class="glow-orb purple-orb"></div>
+        <div id="particles-container"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header glass-panel">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-box">
+                    <span class="hash-symbol">#</span>
+                </div>
+                <span>BlockLab</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Arbitrum L2</a>
+                <a href="fundamentals.html">Fundamentals</a>
+                <a href="dashboard.html">Markets</a>
+                <a href="#" class="active">Simulator</a>
+            </nav>
+            <div class="theme-toggle" id="theme-toggle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="moon-icon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </div>
+            <div class="mobile-menu"><span></span><span></span><span></span></div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero container">
+            <div class="hero-content">
+                <div class="badge">Interactive Lab</div>
+                <h1 class="hero-title">Mine Your First<br><span class="text-gradient">Blockchain Block</span></h1>
+                <p class="hero-subtitle">
+                    Discover how Proof-of-Work secures the network. Find the right nonce, generate valid hashes, and experience the unbreakable immutability of the blockchain.
+                </p>
+                <div class="hero-cta">
+                    <a href="#simulator" class="btn btn-primary">Start Mining</a>
+                    <a href="#how-it-works" class="btn btn-secondary">Learn How It Works</a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="eth-container">
+                    <div class="eth-logo-3d pulse-glow">
+                        <div class="top-pyramid">
+                            <div class="eth-face front"></div>
+                            <div class="eth-face right"></div>
+                            <div class="eth-face back"></div>
+                            <div class="eth-face left"></div>
+                        </div>
+                        <div class="bottom-pyramid">
+                            <div class="eth-face front"></div>
+                            <div class="eth-face right"></div>
+                            <div class="eth-face back"></div>
+                            <div class="eth-face left"></div>
+                        </div>
+                    </div>
+                    <div class="binary-rain" id="binary-rain"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Educational Intro -->
+        <section id="how-it-works" class="edu-intro container">
+            <h2 class="section-heading text-center">The Anatomy of Mining</h2>
+            <p class="section-subheading" style="max-width: 800px; margin: 0 auto 3rem auto; text-align: center; color: var(--text-secondary);">
+                Mining is the mechanism by which new blocks are validated and added to a Proof-of-Work blockchain (like Bitcoin). Miners compete using computational power to solve complex cryptographic puzzles. When a miner finds the correct combination (the 'Nonce') that produces a valid 'Hash', they broadcast the block to the network and are rewarded for their work.
+            </p>
+            <div class="cards-grid">
+                <div class="edu-card glass-panel tilt-card">
+                    <div class="card-icon">🔢</div>
+                    <h3>Nonce</h3>
+                    <p>A "number used once" that miners continuously change to alter the block's final hash.</p>
+                </div>
+                <div class="edu-card glass-panel tilt-card">
+                    <div class="card-icon">#️⃣</div>
+                    <h3>Hash</h3>
+                    <p>A unique cryptographic digital fingerprint generated (SHA-256) based on the block's contents.</p>
+                </div>
+                <div class="edu-card glass-panel tilt-card">
+                    <div class="card-icon">⚒️</div>
+                    <h3>Proof of Work</h3>
+                    <p>The rule stating a hash must start with specific zeroes (difficulty) to be accepted as valid.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Simulator Core -->
+        <section id="simulator" class="simulator-section">
+            <div class="container">
+                <div class="sim-header">
+                    <h2 class="section-heading">Blockchain Simulator</h2>
+                    
+                    <div class="sim-controls glass-panel">
+                        <label for="difficulty-slider">Network Difficulty:</label>
+                        <input type="range" id="difficulty-slider" min="1" max="4" value="2" class="slider">
+                        <span id="difficulty-display" class="badge">00 (2)</span>
+                    </div>
+                </div>
+
+                <!-- Learning Panel -->
+                <div id="learning-panel" class="learning-panel glass-panel status-idle">
+                    <div class="panel-icon">💡</div>
+                    <div class="panel-text">
+                        <h4 id="panel-title">Ready to Mine</h4>
+                        <p id="panel-desc">Click "Mine Block" on Block #1 to find a valid hash that meets the current difficulty.</p>
+                    </div>
+                </div>
+
+                <div class="blockchain-container" id="blockchain-container">
+                    
+                    <!-- BLOCK 1 -->
+                    <div class="block-wrapper" id="block-wrap-1">
+                        <div class="block glass-panel valid" id="block-1">
+                            <div class="block-header">
+                                <h3>Block #1 (Genesis)</h3>
+                                <span class="timestamp" id="time-1">Loading...</span>
+                            </div>
+                            
+                            <div class="block-body">
+                                <div class="input-group">
+                                    <label>Block Data</label>
+                                    <textarea id="data-1" rows="3" class="glass-input">Genesis Block Data</textarea>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label>Previous Hash</label>
+                                    <input type="text" id="prev-1" value="0000000000000000000000000000000000000000000000000000000000000000" disabled class="glass-input hash-font text-muted">
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label>Nonce</label>
+                                    <input type="number" id="nonce-1" value="0" class="glass-input nonce-input">
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label>Current Hash</label>
+                                    <div class="hash-output" id="hash-out-1">
+                                        <span class="hash-prefix" id="hash-prefix-1"></span><span class="hash-rest" id="hash-rest-1"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="block-footer">
+                                <button id="mine-btn-1" class="btn btn-mine" data-block="1">
+                                    <span class="btn-text">Mine Block</span>
+                                    <div class="btn-spinner hidden"></div>
+                                </button>
+                                <div class="mining-stats hidden" id="stats-1">
+                                    <span>Rate: <strong id="rate-1">0</strong> H/s</span>
+                                    <span>Attempts: <strong id="attempts-1">0</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chain-link" id="link-1">
+                            <svg viewBox="0 0 40 100" class="chain-svg">
+                                <path d="M20 0 L20 100" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"></path>
+                                <circle cx="20" cy="50" r="8" fill="currentColor"></circle>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- BLOCK 2 -->
+                    <div class="block-wrapper" id="block-wrap-2">
+                        <div class="block glass-panel valid" id="block-2">
+                            <div class="block-header">
+                                <h3>Block #2</h3>
+                                <span class="timestamp" id="time-2">Loading...</span>
+                            </div>
+                            
+                            <div class="block-body">
+                                <div class="input-group">
+                                    <label>Block Data</label>
+                                    <textarea id="data-2" rows="3" class="glass-input">Alice pays Bob 5 BTC</textarea>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label>Previous Hash</label>
+                                    <input type="text" id="prev-2" value="" disabled class="glass-input hash-font link-color">
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label>Nonce</label>
+                                    <input type="number" id="nonce-2" value="0" class="glass-input nonce-input">
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label>Current Hash</label>
+                                    <div class="hash-output" id="hash-out-2">
+                                        <span class="hash-prefix" id="hash-prefix-2"></span><span class="hash-rest" id="hash-rest-2"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="block-footer">
+                                <button id="mine-btn-2" class="btn btn-mine" data-block="2">
+                                    <span class="btn-text">Mine Block</span>
+                                    <div class="btn-spinner hidden"></div>
+                                </button>
+                                <div class="mining-stats hidden" id="stats-2">
+                                    <span>Rate: <strong id="rate-2">0</strong> H/s</span>
+                                    <span>Attempts: <strong id="attempts-2">0</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chain-link" id="link-2">
+                            <svg viewBox="0 0 40 100" class="chain-svg">
+                                <path d="M20 0 L20 100" stroke="currentColor" stroke-width="4" stroke-dasharray="8 8"></path>
+                                <circle cx="20" cy="50" r="8" fill="currentColor"></circle>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <!-- BLOCK 3 -->
+                    <div class="block-wrapper" id="block-wrap-3">
+                        <div class="block glass-panel valid" id="block-3">
+                            <div class="block-header">
+                                <h3>Block #3</h3>
+                                <span class="timestamp" id="time-3">Loading...</span>
+                            </div>
+                            
+                            <div class="block-body">
+                                <div class="input-group">
+                                    <label>Block Data</label>
+                                    <textarea id="data-3" rows="3" class="glass-input">Deploy Smart Contract</textarea>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label>Previous Hash</label>
+                                    <input type="text" id="prev-3" value="" disabled class="glass-input hash-font link-color">
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label>Nonce</label>
+                                    <input type="number" id="nonce-3" value="0" class="glass-input nonce-input">
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label>Current Hash</label>
+                                    <div class="hash-output" id="hash-out-3">
+                                        <span class="hash-prefix" id="hash-prefix-3"></span><span class="hash-rest" id="hash-rest-3"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="block-footer">
+                                <button id="mine-btn-3" class="btn btn-mine" data-block="3">
+                                    <span class="btn-text">Mine Block</span>
+                                    <div class="btn-spinner hidden"></div>
+                                </button>
+                                <div class="mining-stats hidden" id="stats-3">
+                                    <span>Rate: <strong id="rate-3">0</strong> H/s</span>
+                                    <span>Attempts: <strong id="attempts-3">0</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <!-- Summary Section -->
+        <section class="summary-section container">
+            <div class="summary-glass glass-panel text-center">
+                <h2>The Power of Immutability</h2>
+                <p>Because every block contains the hash of the previous block, changing a single character in Block 1 invalidates the hash. This instantly breaks the cryptographic link to Block 2, Block 3, and every subsequent block. To alter history, an attacker would have to re-mine the changed block and all blocks after it before the rest of the network produces new blocks—which is mathematically improbable.</p>
+                <div class="summary-icons">
+                    <span class="s-icon">🔗 Chain</span>
+                    <span class="s-icon">🛡️ Secure</span>
+                    <span class="s-icon">🚫 Immutable</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer glass-panel">
+        <div class="container footer-content">
+            <div class="logo">
+                <span class="hash-symbol">#</span> BlockLab
+            </div>
+            <p>&copy; 2026 Web3 Educational Simulators. For learning purposes.</p>
+        </div>
+    </footer>
+
+    <script src="js/simulator.js"></script>
+</body>
+</html>

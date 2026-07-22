@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arbitrum | Scale Ethereum Without Compromise</title>
+    <meta name="description"
+        content="Ethereum is powerful, but Layer 2 makes it practical for everyday use. Discover Arbitrum, the leading optimistic rollup scaling solution.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/landing.css">
+
+    <!-- GSAP & Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+    <!-- Vanilla Tilt -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+</head>
+
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Background Elements -->
+    <div class="aurora-bg"></div>
+    <div class="noise-overlay"></div>
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"></div>
+                <span>Arbitrum</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Arbitrum L2</a></li>
+                <li><a href="fundamentals.html">Fundamentals</a></li>
+                <li><a href="dashboard.html">Markets</a></li>
+                <li><a href="simulator.html">Simulator</a></li>
+                <li><a href="#bridge" class="btn btn-outline">Bridge Funds</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Scale Ethereum</span><br>
+                        Without Compromise
+                    </h1>
+                    <p class="hero-subtitle">
+                        Ethereum offers unmatched security but suffers from congestion and expensive gas fees. Arbitrum
+                        is the Layer 2 solution that enables faster, cheaper, and scalable transactions without
+                        sacrificing Ethereum's trust.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#what-is-arbitrum" class="btn btn-primary">Explore Arbitrum</a>
+                        <a href="fundamentals.html" class="btn btn-secondary">Learn Web3 Fundamentals</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="blockchain-visualization">
+                        <div class="center-node pulse"></div>
+                        <div class="orbit-container">
+                            <!-- JS will generate nodes -->
+                        </div>
+                        <div class="glow-effect"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-indicator">
+                <span>Scroll</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- Scroll Transition / Story Intro -->
+        <section id="why-l2" class="why-l2">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">The Ethereum Bottleneck</h2>
+                    <p class="section-description">Ethereum is powerful, but decentralization comes at a cost.</p>
+                </div>
+
+                <div class="bottleneck-grid">
+                    <div class="glass-card tilt-card">
+                        <div class="card-icon">💸</div>
+                        <h3>High Gas Fees</h3>
+                        <p>Network demand drives up transaction costs, making micro-transactions unfeasible.</p>
+                    </div>
+                    <div class="glass-card tilt-card">
+                        <div class="card-icon">⏳</div>
+                        <h3>Slow Processing</h3>
+                        <p>Limited blocks mean your transactions can take minutes to confirm during peak times.</p>
+                    </div>
+                    <div class="glass-card tilt-card">
+                        <div class="card-icon">🛑</div>
+                        <h3>Limited Throughput</h3>
+                        <p>Ethereum can only handle ~15 transactions per second natively.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What is Arbitrum -->
+        <section id="what-is-arbitrum" class="what-is-arbitrum">
+            <div class="container">
+                <div class="split-layout">
+                    <div class="content-side">
+                        <h2 class="section-title">What is <span class="gradient-text">Arbitrum?</span></h2>
+                        <p class="lead-text">Optimistic Rollups that scale Ethereum infinitely.</p>
+                        <p>Arbitrum bundles thousands of transactions together, executes them off-chain at lightning
+                            speed, and posts a single cryptographic proof back to Ethereum.</p>
+
+                        <ul class="feature-list">
+                            <li><strong>Layer 2:</strong> Built on top of Ethereum</li>
+                            <li><strong>Optimistic Rollups:</strong> Assumes validity, verified by fraud proofs</li>
+                            <li><strong>Transaction Batching:</strong> Massive data compression</li>
+                            <li><strong>Ethereum Settlement:</strong> Inherits L1 security</li>
+                        </ul>
+                    </div>
+                    <div class="visual-side">
+                        <div class="architecture-diagram">
+                            <div class="diagram-layer users">Users</div>
+                            <div class="diagram-arrow">↓</div>
+                            <div class="diagram-layer arbitrum">Arbitrum Network</div>
+                            <div class="diagram-arrow">↓</div>
+                            <div class="diagram-layer rollup">Rollup (Batch)</div>
+                            <div class="diagram-arrow">↓</div>
+                            <div class="diagram-layer ethereum">Ethereum Mainnet</div>
+
+                            <div class="data-flow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How Transactions Work -->
+        <section id="how-it-works" class="timeline-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">How It Works</h2>
+                    <p class="section-description">The anatomy of an Arbitrum transaction.</p>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">1</div>
+                        <div class="timeline-content glass-card">
+                            <h3>Submit</h3>
+                            <p>User submits transaction to Arbitrum RPC.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">2</div>
+                        <div class="timeline-content glass-card">
+                            <h3>Execute</h3>
+                            <p>Arbitrum sequencer executes transaction instantly with low fee.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">3</div>
+                        <div class="timeline-content glass-card">
+                            <h3>Batch</h3>
+                            <p>Transactions are compressed and grouped into rollups.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">4</div>
+                        <div class="timeline-content glass-card">
+                            <h3>Submit to L1</h3>
+                            <p>Rollups are posted to Ethereum mainnet as calldata.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">5</div>
+                        <div class="timeline-content glass-card">
+                            <h3>Finalize</h3>
+                            <p>Ethereum secures the state change cryptographically.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits -->
+        <section id="benefits" class="benefits">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">The Arbitrum Advantage</h2>
+                </div>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card glass-card tilt-card">
+                        <div class="icon-wrap">⚡</div>
+                        <h3>Fast Confirmation</h3>
+                        <p>Instant transaction receipts and near-instant finality for users.</p>
+                    </div>
+                    <div class="benefit-card glass-card tilt-card">
+                        <div class="icon-wrap">💰</div>
+                        <h3>Lower Fees</h3>
+                        <p>Up to 100x cheaper than Ethereum Mainnet for all operations.</p>
+                    </div>
+                    <div class="benefit-card glass-card tilt-card">
+                        <div class="icon-wrap">🛡️</div>
+                        <h3>Ethereum Security</h3>
+                        <p>Derived entirely from Ethereum's decentralized consensus.</p>
+                    </div>
+                    <div class="benefit-card glass-card tilt-card">
+                        <div class="icon-wrap">📈</div>
+                        <h3>Massive Scalability</h3>
+                        <p>Virtually unlimited throughput through Nitro architecture.</p>
+                    </div>
+                    <div class="benefit-card glass-card tilt-card">
+                        <div class="icon-wrap">👨‍💻</div>
+                        <h3>Developer Friendly</h3>
+                        <p>EVM equivalent. Deploy exactly the same code as L1.</p>
+                    </div>
+                    <div class="benefit-card glass-card tilt-card">
+                        <div class="icon-wrap">✨</div>
+                        <h3>Excellent UX</h3>
+                        <p>Frictionless onboarding and interaction for everyday users.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section id="stats" class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="850">0</h3>
+                        <span>M+ Transactions</span>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="1200">0</h3>
+                        <span>+ Live Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="100">0</h3>
+                        <span>x Lower Fees</span>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="50">0</h3>
+                        <span>k+ Active Devs</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases -->
+        <section id="use-cases" class="use-cases">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Real-World Ecosystem</h2>
+                    <p class="section-description">Where Arbitrum is making a difference today.</p>
+                </div>
+
+                <div class="use-case-grid">
+                    <div class="use-case-card glass-card">
+                        <div class="card-inner">
+                            <h3>DeFi (Decentralized Finance)</h3>
+                            <p>Arbitrum handles over $3B in Total Value Locked (TVL). Experience high-speed, low-cost trading, decentralized lending, and optimized liquidity provision.</p>
+                            <small style="display:block; margin-top:1rem; font-weight:600; color:var(--color-accent-cyan);">Top Protocols: Uniswap, GMX, Aave</small>
+                        </div>
+                        <div class="card-bg def-bg"></div>
+                    </div>
+                    <div class="use-case-card glass-card">
+                        <div class="card-inner">
+                            <h3>Web3 Gaming</h3>
+                            <p>Process millions of micro-transactions per second for real-time multiplayer on-chain gaming experiences with absolute zero latency friction.</p>
+                            <small style="display:block; margin-top:1rem; font-weight:600; color:var(--color-accent-cyan);">Top Games: Treasure DAO, Beacon</small>
+                        </div>
+                        <div class="card-bg gaming-bg"></div>
+                    </div>
+                    <div class="use-case-card glass-card">
+                        <div class="card-inner">
+                            <h3>NFT Ecosystems</h3>
+                            <p>Mint, buy, and trade millions of digital assets and collectibles without burning a hole in your wallet due to expensive gas fees.</p>
+                            <small style="display:block; margin-top:1rem; font-weight:600; color:var(--color-accent-cyan);">Key Markets: Trove, Stratos</small>
+                        </div>
+                        <div class="card-bg nft-bg"></div>
+                    </div>
+                    <div class="use-case-card glass-card">
+                        <div class="card-inner">
+                            <h3>DAO Governance</h3>
+                            <p>Make decentralized voting accessible for all community members. Enable massive participation with fraction-of-a-cent vote executions.</p>
+                            <small style="display:block; margin-top:1rem; font-weight:600; color:var(--color-accent-cyan);">DAO Members: 500k+ Active Voters</small>
+                        </div>
+                        <div class="card-bg dao-bg"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison -->
+        <section id="comparison" class="comparison">
+            <div class="container">
+                <h2 class="section-title text-center">Ethereum vs Arbitrum</h2>
+                <div class="compare-table glass-card">
+                    <div class="compare-row compare-header">
+                        <div class="compare-feature">Feature</div>
+                        <div class="compare-eth">Ethereum Mainnet</div>
+                        <div class="compare-arb">Arbitrum</div>
+                    </div>
+                    <div class="compare-row">
+                        <div class="compare-feature">Gas Fees</div>
+                        <div class="compare-eth">
+                            <div class="bar bar-high">High</div>
+                        </div>
+                        <div class="compare-arb">
+                            <div class="bar bar-low">Extremely Low</div>
+                        </div>
+                    </div>
+                    <div class="compare-row">
+                        <div class="compare-feature">Speed</div>
+                        <div class="compare-eth">
+                            <div class="bar bar-low">~12s</div>
+                        </div>
+                        <div class="compare-arb">
+                            <div class="bar bar-high">Instant</div>
+                        </div>
+                    </div>
+                    <div class="compare-row">
+                        <div class="compare-feature">Throughput</div>
+                        <div class="compare-eth">
+                            <div class="bar bar-low">15 TPS</div>
+                        </div>
+                        <div class="compare-arb">
+                            <div class="bar bar-high">40,000+ TPS</div>
+                        </div>
+                    </div>
+                    <div class="compare-row">
+                        <div class="compare-feature">Security</div>
+                        <div class="compare-eth">Layer 1 Consensus</div>
+                        <div class="compare-arb">Derived from Layer 1</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-item glass-card">
+                        <button class="accordion-header">
+                            Why does Ethereum need Layer 2?
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Ethereum's architecture prioritizes decentralization and security over speed. This leads
+                                to congestion and high fees during peak usage. Layer 2 networks like Arbitrum solve this
+                                by processing transactions off-chain while relying on Ethereum for underlying security.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="accordion-item glass-card">
+                        <button class="accordion-header">
+                            How does Arbitrum reduce gas fees?
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Arbitrum bundles thousands of transactions together before submitting a single proof to
+                                Ethereum. The massive gas cost of an Ethereum transaction is then split among thousands
+                                of users, resulting in fees that are pennies instead of dollars.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item glass-card">
+                        <button class="accordion-header">
+                            Is Arbitrum secure?
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Yes. Arbitrum uses Optimistic Rollup technology. It inherits its security directly from
+                                Ethereum Mainnet. If an Arbitrum node tries to act maliciously, anyone can submit a
+                                "fraud proof" to the Ethereum network to penalize the bad actor and correct the chain.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="accordion-item glass-card">
+                        <button class="accordion-header">
+                            Can developers migrate easily?
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Absolutely. Arbitrum is fully EVM (Ethereum Virtual Machine) compatible. Developers can
+                                deploy their existing Solidity smart contracts to Arbitrum without changing a single
+                                line of code, using the exact same tools (Hardhat, Foundry, ethers.js).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="contact" class="cta-section">
+            <div class="cta-bg-elements"></div>
+            <div class="container text-center cta-content">
+                <h2 class="section-title">The Future of Ethereum<br>Starts on Layer 2</h2>
+                <p>Join millions of users and developers building the next generation of decentralized applications.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
+                    <a href="#what-is-arbitrum" class="btn btn-primary btn-large cta-btn">Explore Arbitrum</a>
+                    <a href="fundamentals.html" class="btn btn-secondary btn-large">Learn Fundamentals
+                        First</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer glass-card">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon"></div>
+                        <span>Arbitrum</span>
+                    </a>
+                    <p>Scaling Ethereum to the masses.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#why-l2">Why Layer 2</a></li>
+                        <li><a href="#what-is-arbitrum">About Arbitrum</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-social">
+                    <h4>Connect</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Twitter">𝕏</a>
+                        <a href="#" aria-label="Discord">👾</a>
+                        <a href="#" aria-label="GitHub">💻</a>
+                    </div>
+                </div>
+
+                <div class="footer-credits">
+                    <h4>Credits</h4>
+                    <p>Designed by <a href="#" target="_blank">Your Name</a></p>
+                    <p>Batch: <a href="#">Premium Web3 UI</a></p>
+                    <a href="https://github.com" target="_blank" class="github-link">GitHub Repository</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Arbitrum Concept Landing Page. Not affiliated with Offchain Labs.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/landing.js"></script>
+</body>
+
+</html>

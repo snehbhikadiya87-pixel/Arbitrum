@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 Fundamentals | Interactive Reference Guide</title>
+    <meta name="description" content="Understand Web3 in minutes. A visual guide to blockchain concepts, Web2 vs Web3, Ethereum vs Bitcoin, and more.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/fundamentals.css">
+    
+    <!-- GSAP & Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    
+    <!-- Vanilla Tilt -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+</head>
+<body>
+    <div class="cursor"></div>
+
+    <!-- Background -->
+    <div class="bg-gradients">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+    <div class="grid-overlay"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-cube">
+                    <div class="face front"></div>
+                    <div class="face back"></div>
+                    <div class="face right"></div>
+                    <div class="face left"></div>
+                    <div class="face top"></div>
+                    <div class="face bottom"></div>
+                </div>
+                <span>Web3Learn</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Arbitrum L2</a>
+                <a href="#fundamentals" class="active">Fundamentals</a>
+                <a href="#comparisons">Comparisons</a>
+                <a href="dashboard.html">Markets</a>
+                <a href="simulator.html">Simulator</a>
+                <a href="#quiz">Quiz</a>
+                <a href="#learn-more" class="btn btn-nav">Start Learning</a>
+            </nav>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="badge">Reference Guide</div>
+                    <h1 class="hero-title">Understand <span class="text-gradient">Web3</span> in Minutes</h1>
+                    <p class="hero-desc">
+                        A visual guide that simplifies blockchain concepts through comparisons, illustrations, and interactive examples. No long paragraphs, just clear understanding.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#fundamentals" class="btn btn-primary">Explore Concepts</a>
+                        <a href="index.html" class="btn btn-secondary">Discover Arbitrum L2</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="abstract-network">
+                        <div class="center-cube tilt-element"></div>
+                        <div class="floating-node node-1 tilt-element"></div>
+                        <div class="floating-node node-2 tilt-element"></div>
+                        <div class="floating-node node-3 tilt-element"></div>
+                        <div class="connection-line line-1"></div>
+                        <div class="connection-line line-2"></div>
+                        <div class="connection-line line-3"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What is Web3? -->
+        <section id="fundamentals" class="intro-section section-padding">
+            <div class="container">
+                <h2 class="section-heading text-center">What is Web3?</h2>
+                <p class="section-subheading" style="max-width: 800px; margin: 0 auto 3rem auto;">
+                    Web3 is the next evolution of the internet, built on blockchain technology. Unlike Web2, where data and platforms are controlled by centralized corporations, Web3 introduces a decentralized, peer-to-peer architecture. It empowers users with true digital ownership, privacy, and censorship resistance without relying on intermediaries.
+                </p>
+                <div class="cards-grid-3">
+                    <div class="glass-card tilt-card">
+                        <div class="card-icon icon-blue">🌐</div>
+                        <h3>Decentralized</h3>
+                        <p>No central servers or authorities. The network is maintained by users worldwide.</p>
+                    </div>
+                    <div class="glass-card tilt-card">
+                        <div class="card-icon icon-purple">🔑</div>
+                        <h3>True Ownership</h3>
+                        <p>You control your digital assets and identity through cryptographic keys.</p>
+                    </div>
+                    <div class="glass-card tilt-card">
+                        <div class="card-icon icon-emerald">👁️</div>
+                        <h3>Transparency</h3>
+                        <p>Open-source protocols where every transaction is verifiable by anyone.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: Web2 vs Web3 -->
+        <section id="comparisons" class="web-comparison section-padding">
+            <div class="container">
+                <h2 class="section-heading">Web2 <span class="vs">vs</span> Web3</h2>
+                <p class="section-subheading">The shift from rented spaces to owned protocols.</p>
+                
+                <div class="comparison-side-by-side">
+                    <div class="comp-col web2-col glass-card">
+                        <h3 class="col-title text-blue">Web2</h3>
+                        <div class="comp-row">
+                            <span class="comp-label">Ownership</span>
+                            <span class="comp-value">Corporations</span>
+                        </div>
+                        <div class="comp-row">
+                            <span class="comp-label">Identity</span>
+                            <span class="comp-value">Email & Password</span>
+                        </div>
+                        <div class="comp-row">
+                            <span class="comp-label">Data</span>
+                            <span class="comp-value">Stored in central silos</span>
+                        </div>
+                        <div class="comp-row">
+                            <span class="comp-label">Monetization</span>
+                            <span class="comp-value">Ads & Data harvesting</span>
+                        </div>
+                        <div class="comp-row comp-example">
+                            <span class="comp-label">Examples</span>
+                            <span class="comp-value">Twitter, Spotify, Banks</span>
+                        </div>
+                    </div>
+                    
+                    <div class="vs-divider">
+                        <div class="vs-line"></div>
+                        <div class="vs-circle">VS</div>
+                        <div class="vs-line"></div>
+                    </div>
+                    
+                    <div class="comp-col web3-col glass-card">
+                        <h3 class="col-title text-purple">Web3</h3>
+                        <div class="comp-row">
+                            <span class="comp-label">Ownership</span>
+                            <span class="comp-value">Users & Builders</span>
+                        </div>
+                        <div class="comp-row">
+                            <span class="comp-label">Identity</span>
+                            <span class="comp-value">Crypto Wallets</span>
+                        </div>
+                        <div class="comp-row">
+                            <span class="comp-label">Data</span>
+                            <span class="comp-value">Distributed across nodes</span>
+                        </div>
+                        <div class="comp-row">
+                            <span class="comp-label">Monetization</span>
+                            <span class="comp-value">Tokens & Cryptoeconomics</span>
+                        </div>
+                        <div class="comp-row comp-example">
+                            <span class="comp-label">Examples</span>
+                            <span class="comp-value">Farcaster, Audius, DeFi</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="comp-footer glass-card">
+                    <div class="footer-block">
+                        <h4 class="text-blue">Use Web2 when:</h4>
+                        <p>Speed, free hosting, and mass market reach without onboarding friction are priorities.</p>
+                    </div>
+                    <div class="footer-block">
+                        <h4 class="text-purple">Web3 shines when:</h4>
+                        <p>You need censorship resistance, verifiable digital scarcity, or peer-to-peer value transfer.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Ethereum vs Bitcoin -->
+        <section class="crypto-comparison section-padding">
+            <div class="container">
+                <h2 class="section-heading text-center">Ethereum <span class="vs">vs</span> Bitcoin</h2>
+                
+                <div class="crypto-cards">
+                    <!-- Bitcoin Card -->
+                    <div class="crypto-card bitcoin-card tilt-card">
+                        <div class="crypto-header">
+                            <div class="crypto-logo btc-logo">₿</div>
+                            <h3>Bitcoin (BTC)</h3>
+                        </div>
+                        <div class="crypto-stats">
+                            <div class="stat"><span class="label">Purpose</span> <span class="value">Digital Gold</span></div>
+                            <div class="stat"><span class="label">Supply</span> <span class="value">21 Million (Fixed)</span></div>
+                            <div class="stat"><span class="label">Speed</span> <span class="value">~10 minutes</span></div>
+                        </div>
+                        <div class="crypto-visual">
+                            <div class="visual-icons">💰 🏦 🔒</div>
+                        </div>
+                        <ul class="crypto-features">
+                            <li>Store of Value</li>
+                            <li>Peer-to-Peer Payments</li>
+                            <li>Maximum Security</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Ethereum Card -->
+                    <div class="crypto-card ethereum-card tilt-card">
+                        <div class="crypto-header">
+                            <div class="crypto-logo eth-logo">Ξ</div>
+                            <h3>Ethereum (ETH)</h3>
+                        </div>
+                        <div class="crypto-stats">
+                            <div class="stat"><span class="label">Purpose</span> <span class="value">World Computer</span></div>
+                            <div class="stat"><span class="label">Supply</span> <span class="value">Infinite (Deflationary)</span></div>
+                            <div class="stat"><span class="label">Speed</span> <span class="value">~12 seconds</span></div>
+                        </div>
+                        <div class="crypto-visual">
+                            <div class="visual-icons">⚙️ 🖼️ 💱</div>
+                        </div>
+                        <ul class="crypto-features">
+                            <li>Smart Contracts (dApps)</li>
+                            <li>Decentralized Finance (DeFi)</li>
+                            <li>NFTs & Digital Identity</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="beginner-tip glass-card text-center">
+                    <h4>Which should beginners learn first?</h4>
+                    <p>Learn <strong>Bitcoin</strong> to understand digital scarcity and decentralized money. Learn <strong>Ethereum</strong> to understand programmable money, apps, and the broader Web3 ecosystem.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Ethereum Bottleneck -->
+        <section class="bottleneck-section section-padding">
+            <div class="container">
+                <h2 class="section-heading text-center">The Ethereum Bottleneck</h2>
+                <p class="section-subheading text-center">Ethereum is powerful, but decentralization comes at a cost.</p>
+                
+                <div class="bottleneck-cards">
+                    <div class="bottleneck-card glass-card">
+                        <div class="bottleneck-icon">💸</div>
+                        <h3>High Gas Fees</h3>
+                        <p>Network demand drives up transaction costs, making micro-transactions unfeasible. During peak hours, a single transaction can cost $50-$300+.</p>
+                        <div class="bottleneck-detail">
+                            <span class="detail-label">Impact:</span>
+                            <span class="detail-value">Small transfers become economically inefficient</span>
+                        </div>
+                    </div>
+
+                    <div class="bottleneck-card glass-card">
+                        <div class="bottleneck-icon">⏳</div>
+                        <h3>Slow Processing</h3>
+                        <p>Limited block capacity (~15 transactions per second) means your transactions can take minutes to confirm during peak times.</p>
+                        <div class="bottleneck-detail">
+                            <span class="detail-label">Impact:</span>
+                            <span class="detail-value">Network congestion leads to delays and higher fees</span>
+                        </div>
+                    </div>
+
+                    <div class="bottleneck-card glass-card">
+                        <div class="bottleneck-icon">🔗</div>
+                        <h3>Scalability Trilemma</h3>
+                        <p>Ethereum must balance security, decentralization, and scalability. Improving one often compromises the others.</p>
+                        <div class="bottleneck-detail">
+                            <span class="detail-label">Impact:</span>
+                            <span class="detail-value">Cannot optimize all three simultaneously</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bottleneck-solution glass-card">
+                    <h3 class="text-center">The Solution: Layer 2s</h3>
+                    <p>Solutions like Arbitrum, Optimism, and Polygon process transactions off the main chain, then settle on Ethereum. This dramatically reduces fees and increases speed.</p>
+                    <div class="solution-benefits">
+                        <div class="benefit">
+                            <span class="benefit-icon">⚡</span>
+                            <span class="benefit-text"><strong>100-1000x faster</strong> transactions</span>
+                        </div>
+                        <div class="benefit">
+                            <span class="benefit-icon">💰</span>
+                            <span class="benefit-text"><strong>10-100x cheaper</strong> gas fees</span>
+                        </div>
+                        <div class="benefit">
+                            <span class="benefit-icon">🔒</span>
+                            <span class="benefit-text"><strong>Full security</strong> inherited from Ethereum</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Keys -->
+        <section class="keys-section section-padding">
+            <div class="container">
+                <h2 class="section-heading text-center">Public Key <span class="vs">vs</span> Private Key</h2>
+                <p class="section-subheading text-center">Your crypto wallet is just an interface for managing your keys.</p>
+                
+                <div class="keys-explainer">
+                    <div class="user-flow">
+                        <div class="flow-step">👤 User</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step wallet-step glass-card">
+                            <div class="wallet-icon">💼 Wallet</div>
+                            <div class="keys-container">
+                                <div class="key public-key">
+                                    <span class="key-icon">📬</span>
+                                    <div class="key-info">
+                                        <strong>Public Key</strong>
+                                        <span>Like an Email Address</span>
+                                    </div>
+                                    <div class="key-status safe">Safe to Share</div>
+                                </div>
+                                <div class="key private-key">
+                                    <span class="key-icon">🔐</span>
+                                    <div class="key-info">
+                                        <strong>Private Key</strong>
+                                        <span>Like an Email Password</span>
+                                    </div>
+                                    <div class="key-status danger">Never Share!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step blockchain-step">⛓️ Blockchain</div>
+                    </div>
+                    
+                    <div class="key-warnings">
+                        <div class="warning-card safe-card">
+                            <h4>Public Key</h4>
+                            <p>Share this to receive funds. It is publicly visible on the blockchain.</p>
+                        </div>
+                        <div class="warning-card danger-card">
+                            <h4>Private Key / Seed Phrase</h4>
+                            <p>Whoever holds this controls the funds. Never enter it on a website.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: DB vs Blockchain -->
+        <section class="db-comparison section-padding">
+            <div class="container">
+                <h2 class="section-heading text-center">Database <span class="vs">vs</span> Blockchain</h2>
+                
+                <div class="architecture-diagrams">
+                    <div class="arch-box glass-card">
+                        <h4>Traditional Database</h4>
+                        <div class="arch-flow">
+                            <div class="arch-node center-db">🏢 Company Server</div>
+                            <div class="arch-users">
+                                <span>👤 User</span>
+                                <span>👤 User</span>
+                                <span>👤 User</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="arch-box glass-card">
+                        <h4>Blockchain</h4>
+                        <div class="arch-flow blockchain-flow">
+                            <div class="arch-nodes">
+                                <div class="arch-node">💻 Node</div>
+                                <div class="arch-node">💻 Node</div>
+                                <div class="arch-node">💻 Node</div>
+                            </div>
+                            <div class="arch-users">
+                                <span>👤 User</span>
+                                <span>👤 User</span>
+                                <span>👤 User</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="table-wrapper glass-card">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Database</th>
+                                <th>Blockchain</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-row">
+                                <td><strong>Control</strong></td>
+                                <td>Centralized (Admin decides)</td>
+                                <td>Decentralized (Consensus)</td>
+                            </tr>
+                            <tr class="table-row">
+                                <td><strong>Editing Records</strong></td>
+                                <td>CRUD (Create, Read, Update, Delete)</td>
+                                <td>Append-Only (Cannot be altered)</td>
+                            </tr>
+                            <tr class="table-row">
+                                <td><strong>Transparency</strong></td>
+                                <td>Private by default</td>
+                                <td>Public by default</td>
+                            </tr>
+                            <tr class="table-row">
+                                <td><strong>Speed</strong></td>
+                                <td>Lightning fast</td>
+                                <td>Slower (requires verification)</td>
+                            </tr>
+                            <tr class="table-row">
+                                <td><strong>Trust Model</strong></td>
+                                <td>Trust the Company</td>
+                                <td>Trust the Math (Cryptography)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Summary -->
+        <section class="summary-section section-padding">
+            <div class="container">
+                <h2 class="section-heading text-center">Quick Summary</h2>
+                
+                <div class="cards-grid-4">
+                    <div class="summary-card glass-card tilt-card">
+                        <div class="sum-icon">🌍</div>
+                        <h4>Web3</h4>
+                        <p>The decentralized internet owned by builders and users.</p>
+                        <span class="sum-eg">Ex: dApps</span>
+                    </div>
+                    <div class="summary-card glass-card tilt-card">
+                        <div class="sum-icon">⛓️</div>
+                        <h4>Blockchain</h4>
+                        <p>A distributed ledger that cannot be tampered with.</p>
+                        <span class="sum-eg">Ex: Ethereum</span>
+                    </div>
+                    <div class="summary-card glass-card tilt-card">
+                        <div class="sum-icon">📜</div>
+                        <h4>Smart Contract</h4>
+                        <p>Self-executing code stored on the blockchain.</p>
+                        <span class="sum-eg">Ex: Uniswap</span>
+                    </div>
+                    <div class="summary-card glass-card tilt-card">
+                        <div class="sum-icon">👛</div>
+                        <h4>Crypto Wallet</h4>
+                        <p>Software that manages your private keys and identity.</p>
+                        <span class="sum-eg">Ex: MetaMask</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="quiz-section section-padding">
+            <div class="container">
+                <div class="quiz-container glass-card">
+                    <div class="quiz-header">
+                        <h2>Test Your Knowledge</h2>
+                        <div class="quiz-progress">Question <span id="current-q">1</span> of 4</div>
+                    </div>
+                    
+                    <div class="quiz-body">
+                        <h3 id="question-text">Which blockchain natively supports smart contracts?</h3>
+                        <div class="quiz-options" id="options-container">
+                            <!-- Options injected by JS -->
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-footer">
+                        <div id="feedback" class="quiz-feedback"></div>
+                        <button id="next-btn" class="btn btn-primary" style="display: none;">Next Question</button>
+                    </div>
+                    
+                    <!-- Result Screen -->
+                    <div id="quiz-result" class="quiz-result" style="display: none;">
+                        <h3>Quiz Complete!</h3>
+                        <div class="score-display">You scored <span id="score-text">0</span>/4</div>
+                        <button id="restart-btn" class="btn btn-secondary">Retake Quiz</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content glass-card">
+            <div class="footer-info">
+                <div class="logo">
+                    <div class="logo-cube">
+                        <div class="face front"></div><div class="face back"></div>
+                        <div class="face right"></div><div class="face left"></div>
+                        <div class="face top"></div><div class="face bottom"></div>
+                    </div>
+                    <span>Web3Learn</span>
+                </div>
+                <p>Simplifying the transition to the decentralized web.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Navigation</h4>
+                <a href="#fundamentals">Fundamentals</a>
+                <a href="#comparisons">Comparisons</a>
+                <a href="#quiz">Quiz</a>
+                <a href="index.html">Arbitrum L2</a>
+            </div>
+            
+            <div class="footer-social">
+                <h4>Connect</h4>
+                <a href="#" aria-label="Twitter">Twitter</a>
+                <a href="#" aria-label="Discord">Discord</a>
+                <a href="https://github.com" target="_blank">GitHub</a>
+            </div>
+            
+            <div class="footer-credits">
+                <p>Created by Your Name</p>
+                <p>Batch: Web3 Interactive Elements</p>
+                <p class="copyright">&copy; 2026 Web3Learn. Educational Purpose Only.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/fundamentals.js"></script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoDash | Premium Market Analytics</title>
+    <meta name="description" content="Real-time cryptocurrency dashboard tracking live prices, market movements, and trends.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/dashboard.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <!-- Vanilla Tilt -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-glow"></div>
+
+    <!-- Background Elements -->
+    <div class="bg-wrapper">
+        <div class="gradient-sphere sphere-1"></div>
+        <div class="gradient-sphere sphere-2"></div>
+        <div class="gradient-sphere sphere-3"></div>
+        <div class="noise-overlay"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header glass-panel">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#3E80F9" />
+                                <stop offset="100%" stop-color="#00D2FF" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                </div>
+                <span>CryptoDash</span>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="index.html">Arbitrum</a>
+                <a href="fundamentals.html">Fundamentals</a>
+                <a href="#" class="active">Markets</a>
+                <a href="simulator.html">Simulator</a>
+            </nav>
+            
+            <div class="search-bar">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="coin-search" placeholder="Search coins..." aria-label="Search Cryptocurrencies">
+                <div class="search-results glass-panel" id="search-results"></div>
+            </div>
+            
+            <div class="mobile-menu">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Market Status Banner -->
+        <div class="status-banner glass-panel" id="status-banner">
+            <div class="status-indicator">
+                <span class="pulse-dot online" id="connection-dot"></span>
+                <span id="connection-text">API Connected</span>
+            </div>
+            <div class="status-details">
+                <span>Last Sync: <strong id="last-sync-time">--:--:--</strong></span>
+                <div class="auto-refresh-toggle">
+                    <label for="refresh-select">Auto Refresh:</label>
+                    <select id="refresh-select" class="glass-input">
+                        <option value="0">Manual</option>
+                        <option value="30">30s</option>
+                        <option value="60">60s</option>
+                    </select>
+                    <span id="countdown-timer" class="countdown hidden">30s</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Live Cryptocurrency Market</h1>
+                <p class="hero-subtitle">Track real-time prices, market movements, and trends powered by CoinGecko.</p>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat-card glass-panel tilt-element">
+                    <span class="stat-label">Coins Tracked</span>
+                    <h3 class="stat-value text-gradient-blue" id="stat-coins">11</h3>
+                </div>
+                <div class="stat-card glass-panel tilt-element">
+                    <span class="stat-label">Market Trend</span>
+                    <h3 class="stat-value" id="stat-trend">Loading...</h3>
+                </div>
+                <div class="stat-card glass-panel tilt-element">
+                    <span class="stat-label">Manual Refresh</span>
+                    <button id="refresh-btn" class="btn btn-primary" aria-label="Refresh Data">
+                        <svg class="refresh-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                        Refresh Now
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Price Cards (Top Coins) -->
+        <section class="live-cards-section">
+            <h2 class="section-heading">Top Movers</h2>
+            <div class="cards-grid" id="top-cards-container">
+                <!-- Skeleton Loaders -->
+                <div class="crypto-card skeleton-card glass-panel">
+                    <div class="skeleton-header">
+                        <div class="skeleton-icon"></div>
+                        <div class="skeleton-text short"></div>
+                    </div>
+                    <div class="skeleton-price"></div>
+                    <div class="skeleton-chart"></div>
+                </div>
+                <div class="crypto-card skeleton-card glass-panel">
+                    <div class="skeleton-header">
+                        <div class="skeleton-icon"></div>
+                        <div class="skeleton-text short"></div>
+                    </div>
+                    <div class="skeleton-price"></div>
+                    <div class="skeleton-chart"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Market Overview Table -->
+        <section class="market-overview">
+            <div class="section-header">
+                <h2 class="section-heading">Market Overview</h2>
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">All Coins</button>
+                    <button class="filter-tab" data-filter="watchlist">Watchlist <span id="watchlist-count" class="badge">0</span></button>
+                </div>
+            </div>
+            
+            <div class="table-container glass-panel">
+                <table class="market-table">
+                    <thead>
+                        <tr>
+                            <th>Asset</th>
+                            <th>Price (USD)</th>
+                            <th>24h Change</th>
+                            <th>7d Trend</th>
+                            <th>Watch</th>
+                        </tr>
+                    </thead>
+                    <tbody id="market-table-body">
+                        <!-- Filled via JS -->
+                    </tbody>
+                </table>
+                <div id="table-loader" class="table-loader">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Error State Template (Hidden) -->
+        <div id="error-container" class="error-container hidden glass-panel">
+            <svg class="error-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <h3>API Connection Failed</h3>
+            <p>We couldn't fetch the latest data from CoinGecko due to rate limits or network issues.</p>
+            <button id="error-retry-btn" class="btn btn-secondary">Try Again</button>
+        </div>
+    </main>
+
+    <footer class="footer glass-panel">
+        <div class="container footer-content">
+            <p>&copy; 2026 CryptoDash. Educational Purpose.</p>
+            <p class="data-provider">Data provided by <a href="https://www.coingecko.com/" target="_blank">CoinGecko API</a></p>
+        </div>
+    </footer>
+
+    <!-- Template for Crypto Card -->
+    <template id="crypto-card-template">
+        <div class="crypto-card glass-panel tilt-element" data-id="">
+            <div class="card-header">
+                <div class="coin-id-wrap">
+                    <img src="" alt="" class="coin-logo">
+                    <div class="coin-names">
+                        <h3 class="coin-name"></h3>
+                        <span class="coin-symbol"></span>
+                    </div>
+                </div>
+                <button class="watchlist-btn" aria-label="Add to Watchlist">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </button>
+            </div>
+            <div class="card-price-wrap">
+                <h2 class="coin-price"></h2>
+                <div class="change-badge">
+                    <svg class="change-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                    <span class="change-value"></span>
+                </div>
+            </div>
+            <div class="mini-chart-container">
+                <canvas class="mini-chart"></canvas>
+            </div>
+        </div>
+    </template>
+
+    <!-- JS -->
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
