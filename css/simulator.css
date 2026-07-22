@@ -230,7 +230,7 @@ HERO SECTION
 EDUCATIONAL INTRO
 ============================================== 
 */
-.edu-intro { padding: 6rem 0; }
+.edu-intro { padding: 3rem 0; }
 .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
 .edu-card { padding: 2rem; text-align: center; }
 .card-icon { font-size: 2.5rem; margin-bottom: 1rem; background: rgba(255,255,255,0.05); width: 70px; height: 70px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--border-glass); }
@@ -242,7 +242,7 @@ EDUCATIONAL INTRO
 SIMULATOR CORE
 ============================================== 
 */
-.simulator-section { padding: 4rem 0 8rem; }
+.simulator-section { padding: 2rem 0 4rem; }
 .sim-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
 .sim-controls { padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; }
 .slider { width: 150px; cursor: none; }

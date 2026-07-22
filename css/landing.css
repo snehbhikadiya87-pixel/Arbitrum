@@ -100,14 +100,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-title {
     font-size: clamp(2.5rem, 5vw, 4rem);
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .section-description {
     font-size: 1.125rem;
     color: var(--color-text-gray);
     max-width: 600px;
-    margin: 0 auto 4rem;
+    margin: 0 auto 2rem;
 }
 
 /* 
@@ -561,7 +561,7 @@ WHY L2 (BOTTLENECK)
 ============================================== 
 */
 .why-l2 {
-    padding: 8rem 0;
+    padding: 4rem 0;
     position: relative;
 }
 
@@ -586,7 +586,7 @@ WHAT IS ARBITRUM
 ============================================== 
 */
 .what-is-arbitrum {
-    padding: 8rem 0;
+    padding: 4rem 0;
 }
 
 .split-layout {
@@ -688,7 +688,7 @@ TIMELINE
 ============================================== 
 */
 .timeline-section {
-    padding: 8rem 0;
+    padding: 4rem 0;
     background: radial-gradient(ellipse at center, rgba(144, 64, 255, 0.05) 0%, transparent 70%);
 }
 
@@ -746,7 +746,7 @@ BENEFITS
 ============================================== 
 */
 .benefits {
-    padding: 8rem 0;
+    padding: 4rem 0;
 }
 
 .benefits-grid {
@@ -814,7 +814,7 @@ USE CASES
 ============================================== 
 */
 .use-cases {
-    padding: 8rem 0;
+    padding: 4rem 0;
 }
 
 .use-case-grid {
@@ -872,7 +872,7 @@ COMPARISON
 ============================================== 
 */
 .comparison {
-    padding: 8rem 0;
+    padding: 4rem 0;
 }
 
 .compare-table {
@@ -934,7 +934,7 @@ FAQ
 ============================================== 
 */
 .faq {
-    padding: 8rem 0;
+    padding: 4rem 0;
 }
 
 .accordion {

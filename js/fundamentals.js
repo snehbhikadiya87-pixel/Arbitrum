@@ -148,14 +148,14 @@ gsap.from('.crypto-card', {
     }
 });
 
-// Keys Flow
-gsap.from('.flow-step', {
-    y: 30,
+// Keys Section New
+gsap.from('.key-side', {
+    y: 40,
     opacity: 0,
-    duration: 0.6,
+    duration: 0.8,
     stagger: 0.2,
     scrollTrigger: {
-        trigger: ".keys-explainer",
+        trigger: ".keys-section-new",
         start: "top 75%"
     }
 });

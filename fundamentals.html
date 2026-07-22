@@ -38,7 +38,7 @@
     <!-- Header -->
     <header class="header">
         <div class="container nav-container">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 <div class="logo-cube">
                     <div class="face front"></div>
                     <div class="face back"></div>
@@ -51,12 +51,9 @@
             </a>
             <nav class="nav-links">
                 <a href="index.html">Arbitrum L2</a>
-                <a href="#fundamentals" class="active">Fundamentals</a>
-                <a href="#comparisons">Comparisons</a>
+                <a href="fundamentals.html" class="active">Fundamentals</a>
                 <a href="dashboard.html">Markets</a>
                 <a href="simulator.html">Simulator</a>
-                <a href="#quiz">Quiz</a>
-                <a href="#learn-more" class="btn btn-nav">Start Learning</a>
             </nav>
             <div class="menu-toggle">
                 <span></span><span></span><span></span>
@@ -255,7 +252,7 @@
         <section class="bottleneck-section section-padding">
             <div class="container">
                 <h2 class="section-heading text-center">The Ethereum Bottleneck</h2>
-                <p class="section-subheading text-center">Ethereum is powerful, but decentralization comes at a cost.</p>
+                <p class="section-subheading text-center" style="max-width: 800px; margin: 0 auto 1.5rem;">Ethereum is powerful, but decentralization comes at a cost. By design, every node in the network must process and verify every single transaction. This ensures maximum security and trustlessness, but severely limits the amount of data the network can process per second.</p>
                 
                 <div class="bottleneck-cards">
                     <div class="bottleneck-card glass-card">
@@ -301,7 +298,7 @@
                             <span class="benefit-icon">💰</span>
                             <span class="benefit-text"><strong>10-100x cheaper</strong> gas fees</span>
                         </div>
-                        <div class="benefit">
+                    <div class="benefit">
                             <span class="benefit-icon">🔒</span>
                             <span class="benefit-text"><strong>Full security</strong> inherited from Ethereum</span>
                         </div>
@@ -310,50 +307,55 @@
             </div>
         </section>
 
-        <!-- Section 3: Keys -->
-        <section class="keys-section section-padding">
+        <!-- Section 3: Keys Redesigned -->
+        <section class="keys-section-new section-padding">
             <div class="container">
-                <h2 class="section-heading text-center">Public Key <span class="vs">vs</span> Private Key</h2>
-                <p class="section-subheading text-center">Your crypto wallet is just an interface for managing your keys.</p>
+                <h2 class="section-heading text-center">The Key to Crypto</h2>
+                <p class="section-subheading text-center">In Web3, there are no passwords or "Forgot Password" buttons. You are your own bank.</p>
                 
-                <div class="keys-explainer">
-                    <div class="user-flow">
-                        <div class="flow-step">👤 User</div>
-                        <div class="flow-arrow">→</div>
-                        <div class="flow-step wallet-step glass-card">
-                            <div class="wallet-icon">💼 Wallet</div>
-                            <div class="keys-container">
-                                <div class="key public-key">
-                                    <span class="key-icon">📬</span>
-                                    <div class="key-info">
-                                        <strong>Public Key</strong>
-                                        <span>Like an Email Address</span>
-                                    </div>
-                                    <div class="key-status safe">Safe to Share</div>
-                                </div>
-                                <div class="key private-key">
-                                    <span class="key-icon">🔐</span>
-                                    <div class="key-info">
-                                        <strong>Private Key</strong>
-                                        <span>Like an Email Password</span>
-                                    </div>
-                                    <div class="key-status danger">Never Share!</div>
-                                </div>
-                            </div>
+                <div class="keys-split">
+                    <!-- Public Key Side -->
+                    <div class="key-side public-side glass-card tilt-card">
+                        <div class="key-header">
+                            <div class="key-icon-large">📬</div>
+                            <h3>Public Key <span class="key-tag tag-safe">Safe to Share</span></h3>
                         </div>
-                        <div class="flow-arrow">→</div>
-                        <div class="flow-step blockchain-step">⛓️ Blockchain</div>
+                        <p class="key-desc">Think of this as your <strong>transparent mailbox</strong>. Anyone can look inside to see your balance, and anyone can drop money in through the slot. But they cannot take anything out.</p>
+                        
+                        <div class="mock-address-box">
+                            <code class="mock-address">0x71C...976F</code>
+                            <div class="mock-copy">Copy</div>
+                        </div>
+                        
+                        <ul class="key-features-list">
+                            <li><span class="list-icon icon-check">✓</span> Use this to receive funds from anyone.</li>
+                            <li><span class="list-icon icon-check">✓</span> Searchable on Block Explorers (like Etherscan).</li>
+                            <li><span class="list-icon icon-check">✓</span> Safe to post publicly on social media.</li>
+                        </ul>
                     </div>
-                    
-                    <div class="key-warnings">
-                        <div class="warning-card safe-card">
-                            <h4>Public Key</h4>
-                            <p>Share this to receive funds. It is publicly visible on the blockchain.</p>
+
+                    <!-- Private Key Side -->
+                    <div class="key-side private-side glass-card tilt-card">
+                        <div class="key-header">
+                            <div class="key-icon-large">🗝️</div>
+                            <h3>Private Key <span class="key-tag tag-danger">Top Secret</span></h3>
                         </div>
-                        <div class="warning-card danger-card">
-                            <h4>Private Key / Seed Phrase</h4>
-                            <p>Whoever holds this controls the funds. Never enter it on a website.</p>
+                        <p class="key-desc">Think of this as the <strong>master key to the mailbox</strong>. Whoever holds this key has total control over the funds. In modern wallets, this is represented by a <strong>12-word Seed Phrase</strong>.</p>
+                        
+                        <div class="seed-phrase-grid">
+                            <div class="seed-word"><span>1</span> planet</div>
+                            <div class="seed-word"><span>2</span> orbit</div>
+                            <div class="seed-word"><span>3</span> galaxy</div>
+                            <div class="seed-word"><span>4</span> quantum</div>
+                            <div class="seed-word"><span>5</span> nebula</div>
+                            <div class="seed-word"><span>6</span> stellar</div>
                         </div>
+                        
+                        <ul class="key-features-list">
+                            <li><span class="list-icon icon-cross">✗</span> NEVER type this into a random website.</li>
+                            <li><span class="list-icon icon-cross">✗</span> NEVER give this to "customer support".</li>
+                            <li><span class="list-icon icon-cross">✗</span> If you lose this, your funds are gone forever.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -438,6 +440,7 @@
         <section class="summary-section section-padding">
             <div class="container">
                 <h2 class="section-heading text-center">Quick Summary</h2>
+                <p class="section-subheading text-center" style="max-width: 800px; margin: 0 auto 1.5rem;">These four pillars work together to form the foundation of a decentralized internet. Web3 provides the vision, the Blockchain acts as the secure infrastructure, Smart Contracts execute the logic, and your Crypto Wallet acts as your passport to interact with it all.</p>
                 
                 <div class="cards-grid-4">
                     <div class="summary-card glass-card tilt-card">
