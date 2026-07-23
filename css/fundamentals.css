@@ -61,6 +61,7 @@ a { text-decoration: none; color: inherit; }
 .text-gradient {
     background: var(--gradient-text);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 

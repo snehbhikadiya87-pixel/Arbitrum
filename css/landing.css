@@ -576,6 +576,7 @@ WHY L2 (BOTTLENECK)
     margin-bottom: 1.5rem;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
 }
@@ -798,6 +799,7 @@ STATS
     margin-bottom: 0.5rem;
     background: var(--gradient-text);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
